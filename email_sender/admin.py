@@ -14,9 +14,17 @@ class EmailSenderAdmin(admin.ModelAdmin):
         obj.user = request.user
         super().save_model(request, obj, form, change)
 
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        return qs if request.user.is_superuser else qs.filter(user=request.user)
+
 
 class StatementAdmin(admin.ModelAdmin):
     list_display = ('email_sender', 'emails_receive', 'text', 'comment')
+
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        return qs if request.user.is_superuser else qs.filter(email_sender__user=request.user)
 
 
 admin.site.register(EmailSender, EmailSenderAdmin)

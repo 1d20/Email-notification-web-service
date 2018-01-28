@@ -29,7 +29,3 @@ docker-compose exec web python manage.py createsuperuser
 ```sh
 docker-compose exec web python manage.py makemigrations
 ```
-
-# TODO
-
-show only user email inside admin page(email management and statements)
