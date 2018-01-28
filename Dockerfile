@@ -25,7 +25,3 @@ WORKDIR /code/be
 
 ADD ./requirements.txt /code/be/
 RUN pip install -r requirements.txt
-
-COPY . /code/be/
-RUN python /code/be/manage.py makemigrations
-RUN python /code/be/manage.py migrate

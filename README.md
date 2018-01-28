@@ -6,7 +6,9 @@
  - **Username**: test
  - **Password**: test_test_42
 
-## Install for development
+## Development
+
+### Install
 
 You should have `git` and `docker` previously installed
 
@@ -15,3 +17,19 @@ git clone https://github.com/1d20/EmailNotificationWebService.git
 cd EmailNotificationWebService/
 docker-compose up --build
 ```
+
+### Create superuser
+
+```sh
+docker-compose exec web python manage.py createsuperuser
+```
+
+### Create migrations
+
+```sh
+docker-compose exec web python manage.py makemigrations
+```
+
+# TODO
+
+show only user email inside admin page(email management and statements)
