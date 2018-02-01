@@ -1,11 +1,5 @@
 # Simple Web-service to send email notifications
 
-## Demo
-
- - **Server**: http://18.216.38.56:8001/
- - **Username**: test
- - **Password**: test_test_42
-
 ## Development
 
 ### Install
