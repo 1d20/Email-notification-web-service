@@ -12,10 +12,18 @@ class EmailSender(models.Model):
 
 
 class Statement(models.Model):
+    name = models.CharField(max_length=254)
     email_sender = models.ForeignKey(EmailSender, on_delete=models.PROTECT)
     emails_receive = models.TextField()
-    text = models.TextField()
+    subject = models.TextField()
+    message = models.TextField(blank=True, null=True)
     comment = models.TextField(blank=True, null=True)
 
+    def get_emails_receive_list(self):
+        emails = self.emails_receive.split()
+        emails = [e.replace('\r', '') for e in emails]
+        emails += [self.email_sender.email_address]
+        return emails
+
     def __str__(self):
-        return self.comment
+        return self.name
