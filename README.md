@@ -2,7 +2,7 @@
 
 ## Demo
 
- - **Server**: <SERVER_LINK_WILL_BE_HERE>
+ - **Server**: http://18.216.38.56:8001/
  - **Username**: test
  - **Password**: test_test_42
 
